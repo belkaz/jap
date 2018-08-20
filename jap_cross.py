@@ -1,7 +1,8 @@
 import time
 
-import FullLines
-import SumLines
+import FullLines #заполняет столбцы и строки, полностью закрашиваемые (5 из 5)
+import SumLines # заполняет строки и столбы в случае суммарного заполнения ([2,2] из 5)
+
 #     1 5 1 1 5
 #   4 
 # 1 1 
