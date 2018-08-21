@@ -36,11 +36,13 @@ FullLines.FullLine(width, height, cols, rows, probe)
 SumLines.SumLines(width, height, rows, cols, probe)
 AllInLine.AllInLine(width, height, cols, rows, probe)
 BorderElements.BorderElements(width, height, cols, rows, probe)
-
 SetMathProbes.SetMathProbes(width, height, cols, rows, probe)
 
 while True:       
-
+    FullLines.FullLine(width, height, cols, rows, probe)
+    SumLines.SumLines(width, height, rows, cols, probe)
+    AllInLine.AllInLine(width, height, cols, rows, probe)
+    BorderElements.BorderElements(width, height, cols, rows, probe)
     for i in range(width):    
         print(probe[i])  
     time.sleep(3) 
