@@ -1,7 +1,8 @@
 import time
 
-import FullLines #заполняет столбцы и строки, полностью закрашиваемые (5 из 5)
-import SumLines # заполняет строки и столбы в случае суммарного заполнения ([2,2] из 5)
+import FullLines #заполняет столбцы и строки, полностью закрашиваемые (5 из 5 ->[11111])
+import SumLines # заполняет строки и столбы в случае суммарного заполнения ([2,2] из 5 ->[11-11])
+import AllInLine #заполняеи столбцы и строки в случае полного заполнения указанного диапазона ([1,1] - > [?1??1] -> [-1--1])
 
 #     1 5 1 1 5
 #   4 
@@ -32,6 +33,7 @@ for i in range (0 , width):
 
 FullLines.FullLine(width, height, cols, rows, probe)
 SumLines.SumLines(width, height, rows, cols, probe)
+AllInLine.AllInLine(width, height, cols, rows, probe)
 
 while True:       
     for i in range(width):    
