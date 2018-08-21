@@ -14,8 +14,8 @@ def AllInLine(width, height, cols, rows, probe):
                 negat.append(j)
         if (sum(cols[i]) == width - len( negat )):
             for j in range ( width ):
-                if (not (j in negat) and ( (probe[i][j] >=0) and (probe[i][j] < 100))):
-                    probe[i][j] = 100
+                if (not (j in negat) and ( (probe[i][j] >=0) and (probe[i][j] < 200))):
+                    probe[i][j] = 200
                   
 
     for i in range( width ):
@@ -33,8 +33,8 @@ def AllInLine(width, height, cols, rows, probe):
                 negat.append(j)
         if (sum(rows[i]) == height - len( negat )):
             for j in range ( height ):
-                if (not (j in negat) and ( (probe[j][i] >=0) and (probe[j][i] < 100))):
-                    probe[j][i] = 100        
+                if (not (j in negat) and ( (probe[j][i] >=0) and (probe[j][i] < 200))):
+                    probe[j][i] = 200        
         
 
 

@@ -5,7 +5,7 @@ def SumLines(width, height, rows, cols, probe):
                 lastInd = 0
                 for j in range(len(cols[i])):
                     for k in range(lastInd, lastInd + cols[i][j]):
-                        probe[i][k] = 100 
+                        probe[i][k] = 200 
                     if (lastInd + cols[i][j] < width): 
                         lastInd += cols[i][j]
                         probe[i][lastInd] = -1                     
@@ -16,7 +16,7 @@ def SumLines(width, height, rows, cols, probe):
                 lastInd = 0
                 for j in range(len(rows[i])):
                     for k in range(lastInd, lastInd + rows[i][j]):
-                        probe[k][i] = 100 
+                        probe[k][i] = 200 
                     if (lastInd + rows[i][j] < height): 
                         lastInd += rows[i][j]
                         probe[lastInd][i] = -1                     
