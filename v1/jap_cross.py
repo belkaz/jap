@@ -5,45 +5,46 @@ import SumLines # заполняет строки и столбы в случа�
 import AllInLine #заполняеи столбцы и строки в случае полного заполнения указанного диапазона ([1,1] - > [?1??1] -> [-1--1])
 import SetMathProbes #выщитываем мат вероятность заполнения
 import BorderElements #заполнение боковых элементов
-#     1 5 1 1 5
-#   4 
-# 1 1 
-# 1 1
-# 1 1
-# 2 1 
+#  6542
 
 ##cols - rows
 #########################################
 width  = 5
 height = 5
 
-rows    = [[3],[2,1],[1,3], [1], [1]]
+rows    = [[2],[3],[1], [5], [2]]
 cols =[[2],
+      [1,2],
+      [4],
       [1,1],
-      [3],
-      [1,1],
-      [3]
+      [1,1]
       ]
 #########################################
 probe = []
+field = []
 
 for i in range (0 , width):
     probe.append([])
+    field.append([])
     for j in range (0 , height):
         probe[i].append(0)
+        field[i].append(" ")
 
 FullLines.FullLine(width, height, cols, rows, probe)
 SumLines.SumLines(width, height, rows, cols, probe)
 AllInLine.AllInLine(width, height, cols, rows, probe)
 BorderElements.BorderElements(width, height, cols, rows, probe)
-SetMathProbes.SetMathProbes(width, height, cols, rows, probe)
 
-while True:       
-    FullLines.FullLine(width, height, cols, rows, probe)
-    SumLines.SumLines(width, height, rows, cols, probe)
-    AllInLine.AllInLine(width, height, cols, rows, probe)
-    BorderElements.BorderElements(width, height, cols, rows, probe)
+
+while True:      
+ 
     for i in range(width):    
-        print(probe[i])  
+        for j in range (height):
+            if probe[i][j] == 200:
+                field[i][j] = "X"
+            elif probe[i][j] == -1:
+                field[i][j] = "-"
+    for i in range(width):
+        print(field[i])  
     time.sleep(3) 
     print("")    
