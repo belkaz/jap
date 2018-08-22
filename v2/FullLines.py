@@ -15,9 +15,14 @@ def FullLine(width, height, cols, rows, probe):
                 for k in range( width ):
                     if not ( k in negArr): 
                         probe[i][k] = 200
-
+            if len(posArr) == cols[i][0]:
+                for k in range ( width ):
+                    if not (k in posArr):
+                        probe[i][k]= -1
+        
     for i  in range( width ):
         negArr = []
+        posArr = []
         for j in range( height ):
             if probe[j][i] == -1:
                 negArr.append(j)
@@ -31,3 +36,7 @@ def FullLine(width, height, cols, rows, probe):
                 for k in range( height ):
                     if not ( k in negArr): 
                         probe[k][i] = 200
+            if len(posArr) == rows[i][0]:
+                for k in range ( height ):
+                    if not (k in posArr):
+                        probe[k][i] = -1

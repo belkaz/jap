@@ -1,6 +1,8 @@
 import time
 
 import FullLines #check full lines, empty lines, lines full without empty
+import SumLines #check summs
+import Borders #check border elements, 
 ##cols - rows
 # 6542
 #########################################
@@ -26,9 +28,14 @@ for i in range (0 , width):
         field[i].append(" ")
 
 FullLines.FullLine(width, height, cols, rows, probe)
+SumLines.SumLines(width, height, rows, cols, probe)
+Borders.Borders(width, height, cols, rows, probe)
 
 while True: 
     FullLines.FullLine(width, height, cols, rows, probe)
+    SumLines.SumLines(width, height, rows, cols, probe)
+    Borders.Borders(width, height, cols, rows, probe)
+
     for i in range(width):   
         
         for j in range (height):
