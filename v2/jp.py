@@ -3,18 +3,19 @@ import time
 import FullLines #check full lines, empty lines, lines full without empty
 import SumLines #check summs
 import Borders #check border elements, 
+import Towards 
 ##cols - rows
-# 6542
+# 8753
 #########################################
 width  = 5
 height = 5
 
-rows    = [[2],[3],[1], [5], [2]]
-cols =[[2],
-      [1,2],
-      [4],
+rows    = [[1,1],[2,2],[3,1], [2,2], [1,1]]
+cols =[[5],
+      [3],
+      [1],
       [1,1],
-      [1,1]
+      [5]
       ]
 #########################################
 probe = []
@@ -29,12 +30,12 @@ for i in range (0 , width):
 
 FullLines.FullLine(width, height, cols, rows, probe)
 SumLines.SumLines(width, height, rows, cols, probe)
-Borders.Borders(width, height, cols, rows, probe)
-
+Borders.Borders(width, height, cols, rows, probe) #!!!!!!!!!!!!!!
+Towards.Towards(width, height, cols, rows, probe)
 while True: 
     FullLines.FullLine(width, height, cols, rows, probe)
     SumLines.SumLines(width, height, rows, cols, probe)
-    Borders.Borders(width, height, cols, rows, probe)
+    Borders.Borders(width, height, cols, rows, probe) #!!!!!!!!!!!!!!!!!!!
 
     for i in range(width):   
         
@@ -44,6 +45,6 @@ while True:
             elif probe[i][j] == -1:
                 field[i][j] = "-"
     for i in range(width):
-        print(probe[i])  
+       print(field[i])  
     time.sleep(3) 
     print("")    

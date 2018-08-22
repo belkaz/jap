@@ -6,3 +6,13 @@ def Borders(width, height, cols, rows, probe):
         if probe [i][width - 1] == 200:
             for j in range (width - cols[i][len(cols[i])-1], width -1):
                 probe[i][j] = 200
+    for i in range ( width ):
+        if probe [0][i] == 200:
+            for j in range ( rows[i][0] ):
+                probe[j][i] = 200
+        if probe[height - 1][i] == 200:
+            for j in range (height - rows[i][len(rows[i]) - 1], height -1):
+                probe[j][i] = 200
+    
+
+# план - проверка на отталкивание от стены
