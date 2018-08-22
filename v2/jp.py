@@ -45,6 +45,6 @@ while True:
             elif probe[i][j] == -1:
                 field[i][j] = "-"
     for i in range(width):
-       print(field[i])  
+       print(''.join(field[i]))  
     time.sleep(3) 
     print("")    
