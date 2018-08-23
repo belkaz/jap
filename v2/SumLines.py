@@ -9,7 +9,8 @@ def SumLines(width, height, rows, cols, probe):
                     if (lastInd + cols[i][j] < width): 
                         lastInd += cols[i][j]
                         probe[i][lastInd] = -1                     
-                        lastInd += 1                                        
+                        lastInd += 1        
+                                                        
     for i in range(width):
         if (len(rows[i]) > 1):
             if (sum(rows[i]) + len(rows[i]) -1 == height):

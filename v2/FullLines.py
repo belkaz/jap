@@ -19,7 +19,7 @@ def FullLine(width, height, cols, rows, probe):
                 for k in range ( width ):
                     if not (k in posArr):
                         probe[i][k]= -1
-        
+      
     for i  in range( width ):
         negArr = []
         posArr = []
