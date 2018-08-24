@@ -33,16 +33,15 @@ def Math0_V (height, width, rows, probe):
                 curInd +=1
             if probe[j][i] != 200 and probe[j][i] != -1 :
                 unkArr.append( j )
-        curArr = [x for x in curArr if x > 0] #генератор списка
+        curArr = [x for x in curArr if x > 0] #генератор списка        
         if curArr == rows[i] :
             for j in unkArr:
                 probe[j][i] = -1    
 # [
 #       [3], [2], [1]] 
-#    [3] ? ?                  @@@
-#    [2] ? ?              =>  @@-  
-#    [1] ? ?                  @-
-    
+#    [3] @ ?                  @@@
+#    [2] @ ?              =>  @@-  
+#    [1] @ ?                  @-    
 def Border_H (height, width, cols, probe):
     for i in range ( height ):
         if probe[i][0] == 200:
@@ -55,16 +54,63 @@ def Border_H (height, width, cols, probe):
                 probe[i][j] = 200
             if cols[i][len(cols[i]) - 1] < width:
                 probe[i][width - cols[i][ len(cols[i]) - 1] -1] = -1
-
-
 def Border_V (height, width, rows, probe):
     for i in range ( width ):
         if probe[0][i] == 200:
             for j in range( rows[i][0] ):
                 probe[j][i] = 200
-        probe [ rows[i][0] ][i] = -1
+            probe [ rows[i][0] ][i] = -1
         if probe[ width - 1 ] [i] == 200:
             for j in range( height - rows[i][ len(rows[i]) -1], height ):
                 probe[j][i] = 200
             if rows[i][len(rows[i]) - 1] < height:
                 probe[width - rows[i][ len(rows[i]) - 1] -1][i] = -1
+# [2] by [? - ? ? ?] => [- - ? ? ?]
+# !!! частные случаи когда по одному - в строке
+def Math1_H( height, width, cols, probe ):
+    for i in range( height ):
+        q0 = 0
+        for j in range ( width ):
+            if probe[i][j] == -1:
+                if cols[i][0] > j :
+                    for k in range (q0, j):
+                        probe[i][k] = -1
+                    q0 += j
+                if cols[i][ len(cols[i]) -1] > width - j:
+                    for k in range (j, width):
+                        probe[i][k] = -1
+def Math1_М( height, width, rows, probe ):
+    for i in range( width ):
+        q0 = 0
+        for j in range ( height ):
+            if probe[j][i] == -1:
+                if rows[i][0] > j :
+                    for k in range (q0, j):
+                        probe[k][i] = -1
+                    q0 += j
+                if rows[i][ len(rows[i]) -1] > height - j:
+                    for k in range (j, height):
+                        probe[k][i] = -1
+# [4] by [- @ @ @ ?] -> [- @ @ @ @]
+#
+def FullLine_H(height, width, cols, probe):    
+    for i  in range( height ):
+        negArr = []
+        for j in range ( width ):
+            if probe[i][j] == -1:
+                negArr.append(j)
+        if width - len ( negArr ) == cols[i][0] :
+            for j in range ( width ):   
+                if not ( j in negArr ):         
+                    probe[i][j] = 200 
+def FullLine_V(height, width, rows, probe):    
+    for i  in range( width ):
+        negArr = []
+        for j in range ( height ):
+            if probe[j][i] == -1:
+                negArr.append(j)
+        if height - len ( negArr ) == rows[i][0] :
+            for j in range ( height ):   
+                if not ( j in negArr ):         
+                    probe[j][i] = 200  
+

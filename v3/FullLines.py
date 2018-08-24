@@ -51,4 +51,30 @@ def SumLineH (height, width, rows, probe):
                     if ( lastIndex +1 < height ):
                         probe[lastIndex][i] = -1
                         lastIndex +=1                   
- 
+# [3] by [? ? ? ? ?] => [? ? @ ? ?]
+def Towards_H (height, width, cols, probe):
+    for i in range ( height ):
+        tempArr = []
+        for j in range( width ):
+                tempArr.append(0)
+        if (len(cols[i]) == 1) and cols[i][0] > width/2 : 
+            for k in range( cols[i][0] ) :
+                tempArr[k] += 1
+            for k in range (width-cols[i][0], width):
+                tempArr[k] += 1
+        for j in range( width ):
+            if tempArr[j] == 2:
+                probe[i][j] = 200
+def Towards_V(height, width, rows, probe):
+    for i in range ( width ):
+        tempArr = []
+        for j in range( height ):
+                tempArr.append(0)
+        if (len(rows[i]) == 1) and rows[i][0] > height/2 : 
+            for k in range( rows[i][0] ) :
+                tempArr[k] += 1
+            for k in range (height-rows[i][0], width):
+                tempArr[k] += 1
+        for j in range( height ):
+            if tempArr[j] == 2:
+                probe[j][i] = 200
