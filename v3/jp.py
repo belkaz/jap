@@ -56,7 +56,7 @@ FullLines.Towards_H (height, width, cols, probe)
 FullLines.Towards_V(height, width, rows, probe)
 
 while True: 
-    time.sleep(5)
+    time.sleep(3)
     MathLines.Math0_H (height, width, cols, probe)
     MathLines.Math0_V (height, width, rows, probe)
     MathLines.Border_H (height, width, cols, probe)
@@ -65,12 +65,15 @@ while True:
     MathLines.Math1_М( height, width, rows, probe )
     MathLines.FullLine_H(height, width, cols, probe)
     MathLines.FullLine_V(height, width, rows, probe)
+    MathLines.Reborder_H(height, width, cols, probe)
+    MathLines.Reborder_V(height, width, rows, probe)
     for i in range(width):           
         for j in range (height):
             if probe[i][j] == 200:
                 field[i][j] = "@"                
             elif probe[i][j] == -1:
                 field[i][j] = "-"
-    for i in range(width):
+    print('0 1 2 3 4 5 6 7 8 9 0 1 2 3 4')
+    for i in range(width):        
        print(' '.join(field[i]))  
     print("-------------------------------------------")    

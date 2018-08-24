@@ -113,4 +113,55 @@ def FullLine_V(height, width, rows, probe):
             for j in range ( height ):   
                 if not ( j in negArr ):         
                     probe[j][i] = 200  
+#[2] by [? ? @ -] ->[- @ @ -]
+#Reborder
+def Reborder_H(height, width, cols, probe):
+    for i in range( height ):       
+        for j in range ( width ):
+            if probe[i][j] == 200:
+                t = j
+                #####
+                isPrevNegative = True
+                for k in range (0, t):
+                    if probe[i][k] != -1:
+                        isPrevNegative = False
+                if isPrevNegative:
+                    for k in range(t, t + cols[i][0] - 1 ):
+                        probe[i][k] = 200
+                    probe[i][t + cols[i][0] ] = -1
+                #####
+                isNextNegative = True
+                for k in range(t+1, width):
+                    if probe[i][k] != -1:
+                        isNextNegative = False
+                if isNextNegative:
+                    for k in range( t - cols[i][ len(cols[i]) -1 ], t + 1):
+                        probe[i][k] = 200
+                    probe[i][t - cols[i][ len(cols[i]) -1]] = -1
 
+def Reborder_V(width, height, cols, probe):
+    for i in range( height ):
+        for j in range ( width ):
+            if probe[j][i] == 200:
+                t = j
+                #####
+                isPrevNegative = True
+                for k in range (0, t):
+                    if probe[k][i] != -1:
+                        isPrevNegative = False
+                if isPrevNegative:
+                    for k in range(t+1, t + cols[i][0] - 1 ):
+                        probe[k][i] = 200
+                    probe[t + cols[i][0] ][i] = -1
+                #####
+                isNextNegative = True
+                for k in range(t+1, width):
+                    if probe[k][i] != -1:
+                        isNextNegative = False
+                if isNextNegative:
+                    for k in range( t - cols[i][ len(cols[i]) -1 ], t + 1):
+                        probe[k][i] = 200
+                    probe[t - cols[i][ len(cols[i]) -1]][i] = -1
+  
+#[3] by [? ? ? @ ?] -> [? ? @ @ ?]
+                
