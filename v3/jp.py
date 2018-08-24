@@ -55,6 +55,8 @@ FullLines.SumLineH(height, width, rows, probe)
 FullLines.Towards_H (height, width, cols, probe)
 FullLines.Towards_V(height, width, rows, probe)
 
+
+qq = [' 0',' 1', ' 2', ' 3', ' 4', ' 5', ' 6', ' 7', ' 8', ' 9', '10', '11', '12', '13', '14']
 while True: 
     time.sleep(3)
     MathLines.Math0_H (height, width, cols, probe)
@@ -65,8 +67,8 @@ while True:
     MathLines.Math1_М( height, width, rows, probe )
     MathLines.FullLine_H(height, width, cols, probe)
     MathLines.FullLine_V(height, width, rows, probe)
-    MathLines.Reborder_H(height, width, cols, probe)
-    MathLines.Reborder_V(height, width, rows, probe)
+    MathLines.Reborder_H(height, width, cols, probe) #!! check
+    MathLines.Reborder_V(height, width, rows, probe) #!! check
     for i in range(width):           
         for j in range (height):
             if probe[i][j] == 200:
@@ -75,5 +77,5 @@ while True:
                 field[i][j] = "-"
     print('  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4')
     for i in range(width):        
-       print(i, ' '.join(field[i]))  
+       print(qq[i], ' '.join(field[i]))  
     print("-------------------------------------------")    
