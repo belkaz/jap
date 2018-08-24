@@ -1,9 +1,7 @@
 import time
 
-import FullLines #check full lines, empty lines, lines full without empty
-import SumLines #check summs
-import Borders #check border elements, 
-import Towards 
+import FullLines
+import MathLines
 ##cols - rows
 # 8753
 #########################################
@@ -28,6 +26,13 @@ cols =[
       [1,1,1],
       [2,2,2]
       ]
+
+# rows = [[1,1], [2,2], [3,1], [2,2], [1,1]]
+# cols = [[5], 
+#         [3], 
+#         [1], 
+#         [1,1], 
+#         [5]]
 #########################################
 probe = []
 field = []
@@ -39,17 +44,17 @@ for i in range (0 , width):
         probe[i].append(0)
         field[i].append(" ")
 
-FullLines.FullLine(width, height, cols, rows, probe)
-SumLines.SumLines(width, height, rows, cols, probe)
-Borders.Borders(width, height, cols, rows, probe) #!!!!!!!!!!!!!!
-Towards.Towards(width, height, cols, rows, probe)
-while True: 
-    FullLines.FullLine(width, height, cols, rows, probe)
-    SumLines.SumLines(width, height, rows, cols, probe)
-    Borders.Borders(width, height, cols, rows, probe) #!!!!!!!!!!!!!!!!!!!
+FullLines.FullLineH(height, width, cols, probe)
+FullLines.FullLineV(height, width, rows, probe)
+FullLines.EmptyH(height, width, cols, probe)
+FullLines.EmptyV(height, width, rows, probe)
+FullLines.SumLineV(height, width, cols, probe)
+FullLines.SumLineH(height, width, rows, probe)
 
-    for i in range(width):   
-        
+while True: 
+    MathLines.Math0_H (height, width, cols, probe)
+    MathLines.Math0_V (height, width, rows, probe)
+    for i in range(width):           
         for j in range (height):
             if probe[i][j] == 200:
                 field[i][j] = "@"                
