@@ -3,14 +3,14 @@ import time
 import FullLines
 import MathLines
 ##cols - rows
-# 8753
+# 19890
 #########################################
 width  = 15
 height = 15
 
 rows    = [[3],[3],[4,2],[1,8,1],[2,12],[6,4],[2,3,3],[2,1,4,4],[2,3,2,1],[10,2],[9,4],[1,3,4,2,1],[2,3,2],[8],[3]]
 cols =[
-      [3,3],
+      [15],
       [7],
       [8],
       [2,5],
@@ -54,6 +54,9 @@ FullLines.SumLineH(height, width, rows, probe)
 while True: 
     MathLines.Math0_H (height, width, cols, probe)
     MathLines.Math0_V (height, width, rows, probe)
+    MathLines.Border_H (height, width, cols, probe)
+    MathLines.Border_V (height, width, rows, probe)
+    
     for i in range(width):           
         for j in range (height):
             if probe[i][j] == 200:
@@ -63,4 +66,4 @@ while True:
     for i in range(width):
        print(' '.join(field[i]))  
     time.sleep(3) 
-    print("")    
+    print("-------------------------------------------")    

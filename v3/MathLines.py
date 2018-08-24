@@ -37,5 +37,34 @@ def Math0_V (height, width, rows, probe):
         if curArr == rows[i] :
             for j in unkArr:
                 probe[j][i] = -1    
-                
-# [2,1] by []
+# [
+#       [3], [2], [1]] 
+#    [3] ? ?                  @@@
+#    [2] ? ?              =>  @@-  
+#    [1] ? ?                  @-
+    
+def Border_H (height, width, cols, probe):
+    for i in range ( height ):
+        if probe[i][0] == 200:
+            for j in range(cols[i][0]):
+                probe[i][j] = 200
+            if cols[i][0] < width:
+                probe[i][ cols[i][0] ] = -1
+        if probe[i][ width - 1 ] == 200:
+            for j in range( width - cols[i][ len(cols[i]) -1], width ):
+                probe[i][j] = 200
+            if cols[i][len(cols[i]) - 1] < width:
+                probe[i][width - cols[i][ len(cols[i]) - 1] -1] = -1
+
+
+def Border_V (height, width, rows, probe):
+    for i in range ( width ):
+        if probe[0][i] == 200:
+            for j in range( rows[i][0] ):
+                probe[j][i] = 200
+        probe [ rows[i][0] ][i] = -1
+        if probe[ width - 1 ] [i] == 200:
+            for j in range( height - rows[i][ len(rows[i]) -1], height ):
+                probe[j][i] = 200
+            if rows[i][len(rows[i]) - 1] < height:
+                probe[width - rows[i][ len(rows[i]) - 1] -1][i] = -1
