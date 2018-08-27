@@ -79,7 +79,7 @@ def Math1_H( height, width, cols, probe ):
                 if cols[i][ len(cols[i]) -1] > width - j:
                     for k in range (j, width):
                         probe[i][k] = -1
-def Math1_М( height, width, rows, probe ):
+def Math1_V( height, width, rows, probe ):
     for i in range( width ):
         q0 = 0
         for j in range ( height ):
@@ -139,49 +139,6 @@ def Reborder_H(height, width, cols, probe):
                         probe[i][k] = 200
                     probe[i][t - cols[i][ len(cols[i]) -1]] = -1
 
-def Reborder_V(width, height, rows, probe):
-    for i in range( height ):
-        for j in range ( width ):
-            if probe[j][i] == 200:
-                t = j
-                #####
-                isPrevNegative = True
-                for k in range (0, t):
-                    if probe[k][i] != -1:
-                        isPrevNegative = False
-                if isPrevNegative:
-                    for k in range(t+1, t + rows[i][0] - 1 ):
-                        probe[k][i] = 200
-                    probe[t + rows[i][0] ][i] = -1
-                #####
-                isNextNegative = True
-                for k in range(t+1, width):
-                    if probe[k][i] != -1:
-                        isNextNegative = False
-                if isNextNegative:
-                    for k in range( t - rows[i][ len(rows[i]) -1 ], t + 1):
-                        probe[k][i] = 200
-                    probe[t - rows[i][ len(rows[i]) -1]][i] = -1
-  
-def Reb3_H ( height, width, cols, probe):
-    for i in range( height ):
-        for j in range (width ):
-            if probe[i][j] == -1:
-                isNeg = True
-                for k in range (0, j):
-                    if probe[i][k] != -1:
-                        isNeg = False
-                if isNeg :
-                    for k in range (j, j + cols[i][0]):
-                        probe[i][k] = 200
-                    probe[i][ j + cols[i][0] ] = -1
-                # isNeg = True
-                # for k in range (j + 1 , width):
-                #     if probe[i][k] != -1:
-                #         isNeg = False
-                # if isNeg :
-                #     for k in range (j - cols[i][ len (cols[i]) -1], j ):
-                #         probe[i][k] = 200
-                #     probe[i][j - cols[i][ len (cols[i]) -1] -1 ] = -1
+
 #[3] by [? ? ? @ ?] -> [? ? @ @ ?]
                 

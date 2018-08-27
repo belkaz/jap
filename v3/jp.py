@@ -2,6 +2,7 @@ import time
 
 import FullLines
 import MathLines
+import Reborder
 ##cols - rows
 # 19890
 #########################################
@@ -64,12 +65,11 @@ while True:
     MathLines.Border_H (height, width, cols, probe)
     MathLines.Border_V (height, width, rows, probe)
     MathLines.Math1_H( height, width, cols, probe )
-    MathLines.Math1_М( height, width, rows, probe )
+    MathLines.Math1_V( height, width, rows, probe )
     MathLines.FullLine_H(height, width, cols, probe)
     MathLines.FullLine_V(height, width, rows, probe)
-    #MathLines.Reborder_H(height, width, cols, probe) #!! check
-    #MathLines.Reborder_V(height, width, rows, probe) #!! check
-    MathLines.Reb3_H ( height, width, cols, probe)
+    
+    Reborder.Reborder_H ( height, width, cols, probe)
     for i in range(width):           
         for j in range (height):
             if probe[i][j] == 200:
