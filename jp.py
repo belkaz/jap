@@ -1,3 +1,5 @@
+import time
+
 import Empty
 import Full
 import Sum
@@ -42,12 +44,15 @@ for i in range ( height ):
 ############################################
 Empty.Empty(height, width, cols, rows,  probe)
 ############################################
-Full.Full ( height, width, cols, rows,  probe )
-Sum.Sum ( height, width, cols, rows,  probe )
-Towards.Towards (height, width, cols, rows,  probe)
-Border.Border ( height, width, cols, rows,  probe )
-IsAllSet.IsSetAll ( height, width, cols, rows,  probe )
-CouldntSet.CouldntSet ( height, width, cols, rows,  probe )
+while True:
+    time.sleep ( 2 )
+    Full.Full ( height, width, cols, rows,  probe )
+    Sum.Sum ( height, width, cols, rows,  probe )
+    Towards.Towards (height, width, cols, rows,  probe)
+    Border.Border ( height, width, cols, rows,  probe )
+    IsAllSet.IsSetAll ( height, width, cols, rows,  probe )
+    # CouldntSet.CouldntSet ( height, width, cols, rows,  probe )
 ############################################
-for i in range ( height ):
-    print ( ' '.join( map (str, probe[i]) ) )
+    for i in range ( height ):
+        print ( ' '.join( map (str, probe[i]) ) )
+    print ("")
